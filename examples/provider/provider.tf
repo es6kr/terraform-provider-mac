@@ -1,9 +1,9 @@
 terraform {
   required_version = "~> 1.1.4"
   required_providers {
-    installer = {
+    mac = {
       source  = "es6kr/mac"
-      version = "~> 0.6.0"
+      version = "~> 0.1.0"
     }
   }
 }

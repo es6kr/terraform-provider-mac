@@ -31,6 +31,8 @@ func New(version string) func() *schema.Provider {
 				"installer_script":      resourceScript(),
 				"installer_asdf_plugin": resourceASDFPlugin(),
 				"installer_asdf":        resourceASDF(),
+				"mac_installer_brew":    resourceBrew(),
+				"mac_service":           resourceService(),
 			},
 			DataSourcesMap: map[string]*schema.Resource{
 				"installer_brew": dataSourceBrew(),

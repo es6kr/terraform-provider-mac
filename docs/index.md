@@ -10,7 +10,6 @@ description: |-
 The macOS provider provides resources to manage apps (install/uninstall)
 in your local machine in a declarative manner. It currently supports systems that use
 
-- [APT](https://ubuntu.com/server/docs/package-management)
 - [Homebrew](https://brew.sh/)
 
 It also supports shell script via the `installer_script` resource.
@@ -26,7 +25,7 @@ terraform {
   required_providers {
     mac = {
       source  = "es6kr/mac"
-      version = "~> 0.6.0"
+      version = "~> 0.1.0"
     }
   }
 }
