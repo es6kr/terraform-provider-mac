@@ -21,23 +21,23 @@ func TestAccResourceASDFBasic(t *testing.T) { // nolint:dupl,paralleltest
 
 	t.Cleanup(reset)
 
-	t.Run("resource.installer_asdf", func(t *testing.T) { // nolint:paralleltest // due to locking
+	t.Run("resource.mac_asdf", func(t *testing.T) { // nolint:paralleltest // due to locking
 		resource.Test(t, resource.TestCase{
 			PreCheck:          func() { testAccPreCheck(t) },
 			ProviderFactories: providerFactories,
 			CheckDestroy:      testAccCheckASDFDestroy,
 			Steps: []resource.TestStep{
 				{
-					Config: mustReadFile("../../examples/resources/installer_asdf/resource.tf"),
+					Config: mustReadFile("../../examples/resources/asdf/resource.tf"),
 					Check: resource.ComposeTestCheckFunc(
-						testAccCheckResourceExists("installer_asdf.this"),
+						testAccCheckResourceExists("mac_asdf.this"),
 					),
 				},
 			},
 		})
 	})
 
-	t.Run("resource.installer_asdf error", func(t *testing.T) { // nolint:paralleltest // due to locking
+	t.Run("resource.mac_asdf error", func(t *testing.T) { // nolint:paralleltest // due to locking
 		resource.Test(t, resource.TestCase{
 			PreCheck:          func() { testAccPreCheck(t) },
 			ProviderFactories: providerFactories,
@@ -45,7 +45,7 @@ func TestAccResourceASDFBasic(t *testing.T) { // nolint:dupl,paralleltest
 			Steps: []resource.TestStep{
 				{
 					Config:      testAccResourceASDFBasicError,
-					ExpectError: regexp.MustCompile("No such plugin: (.+)"),
+					ExpectError: regexp.MustCompile("(No such plugin: abc)|(abc not installed)"),
 				},
 			},
 		})
@@ -54,7 +54,7 @@ func TestAccResourceASDFBasic(t *testing.T) { // nolint:dupl,paralleltest
 
 func testAccCheckASDFDestroy(s *terraform.State) error {
 	for _, resource := range s.RootModule().Resources {
-		if resource.Type != "installer_asdf" {
+		if resource.Type != "mac_asdf" {
 			continue
 		}
 
@@ -73,7 +73,7 @@ func testAccCheckASDFDestroy(s *terraform.State) error {
 }
 
 const testAccResourceASDFBasicError = `
-resource "installer_asdf" "test" {
+resource "mac_asdf" "test" {
   name    = "abc"
   version = "v0.1.2"
 }

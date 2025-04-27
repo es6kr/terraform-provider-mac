@@ -23,9 +23,9 @@ func nameFromBrewID(id string) string {
 
 func resourceBrew() *schema.Resource {
 	return &schema.Resource{
-		Description: "`installer_brew` manages an application using [Homebrew](https://brew.sh/).\n\n" +
+		Description: "`mac_brew` manages an application using [Homebrew](https://brew.sh/).\n\n" +
 			"It works on systems that use Homebrew as the package management system. " +
-			"Adding an `installer_brew` resource means that Terraform will ensure that " +
+			"Adding an `mac_brew` resource means that Terraform will ensure that " +
 			"the application defined in the `name` argument is made available via brew.",
 		CreateContext: resourceBrewCreate,
 		ReadContext:   resourceBrewRead,

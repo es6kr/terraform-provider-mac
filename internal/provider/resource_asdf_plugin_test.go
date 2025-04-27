@@ -22,23 +22,23 @@ func TestAccResourceASDFPluginBasic(t *testing.T) { // nolint:dupl,paralleltest
 
 	t.Cleanup(reset)
 
-	t.Run("resource.installer_asdf_plugin", func(t *testing.T) { // nolint:paralleltest // due to locking
+	t.Run("resource.mac_asdf_plugin", func(t *testing.T) { // nolint:paralleltest // due to locking
 		resource.Test(t, resource.TestCase{
 			PreCheck:          func() { testAccPreCheck(t) },
 			ProviderFactories: providerFactories,
 			CheckDestroy:      testAccCheckASDFPluginDestroy,
 			Steps: []resource.TestStep{
 				{
-					Config: mustReadFile("../../examples/resources/installer_asdf_plugin/resource.tf"),
+					Config: mustReadFile("../../examples/resources/asdf_plugin/resource.tf"),
 					Check: resource.ComposeTestCheckFunc(
-						testAccCheckResourceExists("installer_asdf_plugin.this"),
+						testAccCheckResourceExists("mac_asdf_plugin.this"),
 					),
 				},
 			},
 		})
 	})
 
-	t.Run("resource.installer_asdf_plugin error", func(t *testing.T) { // nolint:paralleltest // due to locking
+	t.Run("resource.mac_asdf_plugin error", func(t *testing.T) { // nolint:paralleltest // due to locking
 		resource.Test(t, resource.TestCase{
 			PreCheck:          func() { testAccPreCheck(t) },
 			ProviderFactories: providerFactories,
@@ -55,7 +55,7 @@ func TestAccResourceASDFPluginBasic(t *testing.T) { // nolint:dupl,paralleltest
 
 func testAccCheckASDFPluginDestroy(s *terraform.State) error {
 	for _, resource := range s.RootModule().Resources {
-		if resource.Type != "installer_asdf_plugin" {
+		if resource.Type != "mac_asdf_plugin" {
 			continue
 		}
 
@@ -73,7 +73,7 @@ func testAccCheckASDFPluginDestroy(s *terraform.State) error {
 }
 
 const testAccResourceASDFPluginBasicError = `
-resource "installer_asdf_plugin" "test" {
+resource "mac_asdf_plugin" "test" {
   name = "abc"
 }
 `

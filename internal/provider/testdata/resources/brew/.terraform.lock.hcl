@@ -2,7 +2,7 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/es6kr/mac" {
-  version = "0.5.0"
+  version = "0.0.1"
   hashes = [
     "h1:6x2ekKi6LYtmDmZN//f+bODkMRz0JRH0/blhpZwyVSA=",
     "zh:1c3e89cf19118fc07d7b04257251fc9897e722c16e0a0df7b07fcd261f8c12e7",

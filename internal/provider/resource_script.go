@@ -23,8 +23,8 @@ func pathFromScriptID(id string) string {
 
 func resourceScript() *schema.Resource {
 	return &schema.Resource{
-		Description: "`installer_script` manages an application using a custom script.\n\n" +
-			"Adding an `installer_script` resource means that Terraform will install " +
+		Description: "`mac_script` manages an application using a custom script.\n\n" +
+			"Adding an `mac_script` resource means that Terraform will install " +
 			"application in the `path` by running the `install_script` when creating the resource.",
 		CreateContext: resourceScriptCreate,
 		ReadContext:   resourceScriptRead,

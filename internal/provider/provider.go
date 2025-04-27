@@ -27,13 +27,14 @@ func New(version string) func() *schema.Provider {
 	return func() *schema.Provider {
 		pvd := &schema.Provider{
 			ResourcesMap: map[string]*schema.Resource{
-				"installer_brew":        resourceBrew(),
-				"installer_script":      resourceScript(),
-				"installer_asdf_plugin": resourceASDFPlugin(),
-				"installer_asdf":        resourceASDF(),
+				"mac_asdf_plugin": resourceASDFPlugin(),
+				"mac_asdf":        resourceASDF(),
+				"mac_brew":        resourceBrew(),
+				"mac_script":      resourceScript(),
+				"mac_service":     resourceService(),
 			},
 			DataSourcesMap: map[string]*schema.Resource{
-				"installer_brew": dataSourceBrew(),
+				"mac_brew": dataSourceBrew(),
 			},
 		}
 

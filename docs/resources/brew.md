@@ -1,23 +1,23 @@
 ---
-page_title: "installer_brew Resource - terraform-provider-mac"
+page_title: "mac_brew Resource - terraform-provider-mac"
 subcategory: ""
 description: |-
-  installer_brew manages an application using Homebrew https://brew.sh/.
-  It works on systems that use Homebrew as the package management system. Adding an installer_brew resource means that Terraform will ensure that the application defined in the name argument is made available via brew.
+  mac_brew manages an application using Homebrew https://brew.sh/.
+  It works on systems that use Homebrew as the package management system. Adding an mac_brew resource means that Terraform will ensure that the application defined in the name argument is made available via brew.
 ---
 
-# installer_brew (Resource)
+# mac_brew (Resource)
 
-`installer_brew` manages an application using [Homebrew](https://brew.sh/).
+`mac_brew` manages an application using [Homebrew](https://brew.sh/).
 
-It works on systems that use Homebrew as the package management system. Adding an `installer_brew` resource means that Terraform will ensure that the application defined in the `name` argument is made available via brew.
+It works on systems that use Homebrew as the package management system. Adding an `mac_brew` resource means that Terraform will ensure that the application defined in the `name` argument is made available via brew.
 
 ## Example Usage
 
 ### Basic usage
 
 ```terraform
-resource "installer_brew" "basic" {
+resource "mac_brew" "basic" {
   name = "cowsay"
 }
 ```
@@ -27,7 +27,7 @@ resource "installer_brew" "basic" {
 Install a Homebrew tap using its fully qualified name.
 
 ```terraform
-resource "installer_brew" "tap" {
+resource "mac_brew" "tap" {
   name = "knqyf263/pet/pet"
 }
 ```
@@ -37,7 +37,7 @@ resource "installer_brew" "tap" {
 Install a Homebrew cask using the `cask=true` argument.
 
 ```terraform
-resource "installer_brew" "cask" {
+resource "mac_brew" "cask" {
   name = "neovide"
   cask = true
 }
@@ -46,7 +46,7 @@ resource "installer_brew" "cask" {
 Install a Homebrew tap using its fully qualified name.
 
 ```terraform
-resource "installer_brew" "cask_fqn" {
+resource "mac_brew" "cask_fqn" {
   name = "homebrew/cask/alfred"
 }
 ```

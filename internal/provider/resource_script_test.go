@@ -9,7 +9,7 @@ import (
 func TestAccResourceScriptBasic(t *testing.T) {
 	t.Parallel()
 
-	t.Run("resource.installer_script", func(t *testing.T) {
+	t.Run("resource.mac_script", func(t *testing.T) {
 		t.Parallel()
 
 		resource.Test(t, resource.TestCase{
@@ -19,7 +19,7 @@ func TestAccResourceScriptBasic(t *testing.T) {
 				{
 					Config: testAccResourceScriptBasic,
 					Check: resource.ComposeTestCheckFunc(
-						testAccCheckResourceExists("installer_script.test"),
+						testAccCheckResourceExists("mac_script.test"),
 					),
 				},
 			},
@@ -28,7 +28,7 @@ func TestAccResourceScriptBasic(t *testing.T) {
 }
 
 const testAccResourceScriptBasic = `
-resource "installer_script" "test" {
+resource "mac_script" "test" {
   path           = "/tmp/installer-myapp-test"
   install_script = <<-EOF
   /bin/bash

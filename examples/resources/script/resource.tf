@@ -1,4 +1,4 @@
-resource "installer_script" "this" {
+resource "mac_script" "this" {
   path           = "/tmp/installer-myapp-test"
   install_script = <<-EOF
   /bin/bash
