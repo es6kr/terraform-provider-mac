@@ -49,7 +49,7 @@ jobs:
       - run: |
           git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.16.2
           . $HOME/.asdf/asdf.sh
-          make TESTARGS="-tags=apt" testacc
+          make TESTARGS="-tags=asdf" testacc
 
   tests-macos:
     name: Run acceptance tests on macOS

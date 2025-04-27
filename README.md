@@ -54,8 +54,8 @@ make test
 
 Run acceptance tests with
 
-```
-make TESTARGS="-tags=apt" testacc
+```sh
+make TESTARGS="-tags=asdf" testacc
 ```
 
 We must provide the value for `-tags` because some tests only run on a specific platform. Currently, the valid values for `-tags` are:
