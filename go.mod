@@ -1,4 +1,4 @@
-module github.com/shihanng/terraform-provider-installer
+module github.com/es6kr/terraform-provider-mac
 
 go 1.19
 

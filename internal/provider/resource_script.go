@@ -4,11 +4,11 @@ import (
 	"context"
 	"strings"
 
+	"github.com/es6kr/terraform-provider-mac/internal/script"
+	"github.com/es6kr/terraform-provider-mac/internal/xerrors"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/shihanng/terraform-provider-installer/internal/script"
-	"github.com/shihanng/terraform-provider-installer/internal/xerrors"
 )
 
 const scriptIDPrefix = "script:"

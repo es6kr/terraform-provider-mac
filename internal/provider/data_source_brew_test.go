@@ -6,8 +6,8 @@ import (
 	"regexp"
 	"testing"
 
+	"github.com/es6kr/terraform-provider-mac/internal/xerrors"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
-	"github.com/shihanng/terraform-provider-installer/internal/xerrors"
 )
 
 func TestAccDataSourceBrew(t *testing.T) {

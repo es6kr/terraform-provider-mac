@@ -2,13 +2,13 @@ terraform {
   required_version = "~> 1.1.4"
   required_providers {
     installer = {
-      source  = "shihanng/installer"
+      source  = "es6kr/mac"
       version = "~> 0.6.0"
     }
   }
 }
 
-provider "installer" {
+provider "mac" {
 }
 
 locals {

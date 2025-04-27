@@ -1,7 +1,7 @@
 # This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
 
-provider "registry.terraform.io/shihanng/installer" {
+provider "registry.terraform.io/es6kr/mac" {
   version = "0.5.0"
   hashes = [
     "h1:6x2ekKi6LYtmDmZN//f+bODkMRz0JRH0/blhpZwyVSA=",

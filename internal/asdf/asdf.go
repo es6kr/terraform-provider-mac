@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/cockroachdb/errors"
-	"github.com/shihanng/terraform-provider-installer/internal/xerrors"
+	"github.com/es6kr/terraform-provider-mac/internal/xerrors"
 )
 
 func AddPlugin(ctx context.Context, name, gitURL string, env []string) error {

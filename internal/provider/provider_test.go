@@ -4,10 +4,10 @@ import (
 	"testing"
 
 	"github.com/cockroachdb/errors"
+	"github.com/es6kr/terraform-provider-mac/internal/provider"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/shihanng/terraform-provider-installer/internal/provider"
 	"gotest.tools/v3/assert"
 )
 
@@ -20,7 +20,7 @@ var (
 // The factory function will be invoked for every Terraform CLI command executed
 // to create a provider server to which the CLI can reattach.
 var providerFactories = map[string]func() (*schema.Provider, error){ //nolint:gochecknoglobals
-	"installer": func() (*schema.Provider, error) { //nolint:unparam
+	"mac": func() (*schema.Provider, error) { //nolint:unparam
 		return provider.New("dev")(), nil
 	},
 }

@@ -4,10 +4,10 @@ package provider
 import (
 	"context"
 
+	"github.com/es6kr/terraform-provider-mac/internal/brew"
+	"github.com/es6kr/terraform-provider-mac/internal/xerrors"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/shihanng/terraform-provider-installer/internal/brew"
-	"github.com/shihanng/terraform-provider-installer/internal/xerrors"
 )
 
 func dataSourceBrew() *schema.Resource {

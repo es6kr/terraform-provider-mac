@@ -1,13 +1,13 @@
 ---
 layout: ""
-page_title: "Provider: Installer"
+page_title: "Provider: macOS"
 description: |-
-  Install/uninstall apps in the local machine using the Installer provider.
+  Install/uninstall apps in the local machine using the macOS provider.
 ---
 
-# Installer Provider
+# macOS Provider
 
-The Installer provider provides resources to manage apps (install/uninstall)
+The macOS provider provides resources to manage apps (install/uninstall)
 in your local machine in a declarative manner. It currently supports systems that use
 
 - [APT](https://ubuntu.com/server/docs/package-management)
@@ -24,14 +24,14 @@ The following shows how to ensure the system has git and starship installed via 
 terraform {
   required_version = "~> 1.1.4"
   required_providers {
-    installer = {
-      source  = "shihanng/installer"
+    mac = {
+      source  = "es6kr/mac"
       version = "~> 0.6.0"
     }
   }
 }
 
-provider "installer" {
+provider "mac" {
 }
 
 locals {

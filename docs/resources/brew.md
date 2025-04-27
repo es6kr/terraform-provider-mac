@@ -1,5 +1,5 @@
 ---
-page_title: "installer_brew Resource - terraform-provider-installer"
+page_title: "installer_brew Resource - terraform-provider-mac"
 subcategory: ""
 description: |-
   installer_brew manages an application using Homebrew https://brew.sh/.

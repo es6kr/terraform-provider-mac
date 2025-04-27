@@ -7,11 +7,11 @@ import (
 	"testing"
 
 	"github.com/cockroachdb/errors"
+	"github.com/es6kr/terraform-provider-mac/internal/asdf"
+	"github.com/es6kr/terraform-provider-mac/internal/xerrors"
+	"github.com/es6kr/terraform-provider-mac/internal/xtests"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/shihanng/terraform-provider-installer/internal/asdf"
-	"github.com/shihanng/terraform-provider-installer/internal/xerrors"
-	"github.com/shihanng/terraform-provider-installer/internal/xtests"
 	"gotest.tools/v3/assert"
 )
 

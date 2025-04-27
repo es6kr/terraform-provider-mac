@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/cockroachdb/errors"
-	"github.com/shihanng/terraform-provider-installer/internal/asdf"
-	"github.com/shihanng/terraform-provider-installer/internal/xtests"
+	"github.com/es6kr/terraform-provider-mac/internal/asdf"
+	"github.com/es6kr/terraform-provider-mac/internal/xtests"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/assert/cmp"
 )

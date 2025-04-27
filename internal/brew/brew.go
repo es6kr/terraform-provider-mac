@@ -9,8 +9,8 @@ import (
 	"strings"
 
 	"github.com/cockroachdb/errors"
-	"github.com/shihanng/terraform-provider-installer/internal/system"
-	"github.com/shihanng/terraform-provider-installer/internal/xerrors"
+	"github.com/es6kr/terraform-provider-mac/internal/system"
+	"github.com/es6kr/terraform-provider-mac/internal/xerrors"
 )
 
 var ErrFormulaNotFound = errors.New("formula not found")

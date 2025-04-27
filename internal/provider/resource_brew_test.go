@@ -10,9 +10,9 @@ import (
 	"testing"
 
 	"github.com/cockroachdb/errors"
+	"github.com/es6kr/terraform-provider-mac/internal/brew"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/shihanng/terraform-provider-installer/internal/brew"
 )
 
 func TestAccResourceBrewBasic(t *testing.T) { // nolint:tparallel

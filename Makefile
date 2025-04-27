@@ -1,6 +1,6 @@
 .PHONY: test clean all
 
-NAME=installer
+NAME=mac
 OS_ARCH ?= linux_amd64
 
 build:

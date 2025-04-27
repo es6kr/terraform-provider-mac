@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/shihanng/terraform-provider-installer/internal/script"
+	"github.com/es6kr/terraform-provider-mac/internal/script"
 	"gotest.tools/v3/assert"
 )
 
