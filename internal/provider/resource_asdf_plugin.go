@@ -23,7 +23,7 @@ func nameFromASDFPluginID(id string) string {
 
 func resourceASDFPlugin() *schema.Resource {
 	return &schema.Resource{
-		Description:   "`installer_asdf_plugin` manages an [asdf plugin](https://asdf-vm.com/manage/plugins.html).",
+		Description:   "`mac_asdf_plugin` manages an [asdf plugin](https://asdf-vm.com/manage/plugins.html).",
 		CreateContext: resourceASDFPluginCreate,
 		ReadContext:   resourceASDFPluginRead,
 		DeleteContext: resourceASDFPluginDelete,

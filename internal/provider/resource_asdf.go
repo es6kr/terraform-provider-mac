@@ -26,7 +26,7 @@ func fromASDFID(id string) (name, version string) {
 
 func resourceASDF() *schema.Resource {
 	return &schema.Resource{
-		Description: "`installer_asdf` manages a specify version of application using " +
+		Description: "`mac_asdf` manages a specify version of application using " +
 			"[asdf](https://asdf-vm.com/).",
 		CreateContext: resourceASDFCreate,
 		ReadContext:   resourceASDFRead,
@@ -38,7 +38,7 @@ func resourceASDF() *schema.Resource {
 				Computed:    true,
 			},
 			"name": {
-				Description: "is the name of the plugin. See `installer_asdf_plugin`.",
+				Description: "is the name of the plugin. See `mac_asdf_plugin`.",
 				Type:        schema.TypeString,
 				Required:    true,
 				ForceNew:    true,

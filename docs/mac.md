@@ -34,7 +34,7 @@ provider "mac" {
 }
 
 locals {
-  apps = ["git", "nebula"]
+  apps = ["git", "starship"]
 }
 
 resource "mac_brew" "this" {

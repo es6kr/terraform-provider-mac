@@ -1,3 +1,3 @@
-resource "installer_brew" "basic" {
+resource "mac_brew" "basic" {
   name = "cowsay"
 }

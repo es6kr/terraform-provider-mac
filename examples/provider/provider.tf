@@ -1,9 +1,9 @@
 terraform {
   required_version = "~> 1.1.4"
   required_providers {
-    installer = {
+    mac = {
       source  = "es6kr/mac"
-      version = "~> 0.6.0"
+      version = "~> 0.1.0"
     }
   }
 }
@@ -12,10 +12,10 @@ provider "mac" {
 }
 
 locals {
-  apps = ["git", "starship"]
+  apps = ["git", "nebula"]
 }
 
-resource "installer_brew" "this" {
+resource "mac_brew" "this" {
   for_each = toset(local.apps)
   name     = each.key
 }
