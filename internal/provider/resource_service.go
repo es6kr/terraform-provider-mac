@@ -13,8 +13,8 @@ import (
 
 const serviceIDPrefix = "service:"
 
-func serviceID(label string) string {
-	return serviceIDPrefix + label
+func serviceID(domainTarget string, label string) string {
+	return serviceIDPrefix + domainTarget + "/" + label
 }
 
 func labelFromServiceID(id string) string {
@@ -33,6 +33,13 @@ func resourceService() *schema.Resource {
 				Description: "Internal ID of the service resource.",
 				Type:        schema.TypeString,
 				Computed:    true,
+			},
+			"domain_target": {
+				Description: "The domain to which the service belongs. This is usually `system` or `user`. The user domain is usually `gui/<uid>` where `<uid>` is the user ID.",
+				Type:        schema.TypeString,
+				Default:     "system",
+				ForceNew:    true,
+				Optional:    true,
 			},
 			"label": {
 				Description: "The label of the launchctl service, usually defined in the plist.",
@@ -61,11 +68,12 @@ func resourceService() *schema.Resource {
 }
 
 func resourceServiceCreate(ctx context.Context, data *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	domain := data.Get("domain_target").(string)
 	label := data.Get("label").(string)
 	plist := data.Get("plist").(string)
 	start := data.Get("start").(bool)
 
-	if err := launchctl.Bootstrap(ctx, plist); err != nil {
+	if err := launchctl.Bootstrap(ctx, domain, plist); err != nil {
 		return xerrors.ToDiags(err)
 	}
 
@@ -75,7 +83,7 @@ func resourceServiceCreate(ctx context.Context, data *schema.ResourceData, meta 
 		}
 	}
 
-	data.SetId(serviceID(label))
+	data.SetId(serviceID(domain, label))
 
 	return resourceServiceRead(ctx, data, meta)
 }
@@ -96,9 +104,10 @@ func resourceServiceRead(ctx context.Context, data *schema.ResourceData, meta in
 }
 
 func resourceServiceDelete(ctx context.Context, data *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	domain := data.Get("domain_target").(string)
 	label := labelFromServiceID(data.Id())
 
-	if err := launchctl.Bootout(ctx, label); err != nil {
+	if err := launchctl.Bootout(ctx, domain, label); err != nil {
 		if errors.Is(err, xerrors.ErrNotInstalled) {
 			// Already removed
 			data.SetId("")

@@ -8,8 +8,8 @@ import (
 	"github.com/cockroachdb/errors"
 )
 
-func Bootout(ctx context.Context, label string) error {
-	cmd := exec.CommandContext(ctx, "launchctl", "bootout", "gui/$(id -u)", label)
+func Bootout(ctx context.Context, domainTarget string, label string) error {
+	cmd := exec.CommandContext(ctx, "launchctl", "bootout", domainTarget, label)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return errors.Wrapf(err, "bootout failed: %s", string(out))
@@ -17,8 +17,8 @@ func Bootout(ctx context.Context, label string) error {
 	return nil
 }
 
-func Bootstrap(ctx context.Context, plistPath string) error {
-	cmd := exec.CommandContext(ctx, "launchctl", "bootstrap", "gui/$(id -u)", plistPath)
+func Bootstrap(ctx context.Context, domainTarget string, plistPath string) error {
+	cmd := exec.CommandContext(ctx, "launchctl", "bootstrap", domainTarget, plistPath)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return errors.Wrapf(err, "bootstrap failed: %s", string(out))
@@ -36,8 +36,8 @@ func IsLoaded(ctx context.Context, label string) (bool, error) {
 	return strings.Contains(string(out), label), nil
 }
 
-func Kickstart(ctx context.Context, label string) error {
-	cmd := exec.CommandContext(ctx, "launchctl", "kickstart", "gui/$(id -u)/"+label)
+func Kickstart(ctx context.Context, serviceTarget string) error {
+	cmd := exec.CommandContext(ctx, "launchctl", "kickstart", serviceTarget)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return errors.Wrapf(err, "kickstart failed: %s", string(out))

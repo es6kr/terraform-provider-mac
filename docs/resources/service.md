@@ -25,6 +25,7 @@ It controls macOS services by loading, unloading, and optionally starting them v
 
 ### Optional
 
+- `domain_target` (String) The domain to which the service belongs. This is usually `system` or `user`. The user domain is usually `gui/<uid>` where `<uid>` is the user ID.
 - `start` (Boolean) Whether to immediately start the service after loading.
 
 ### Read-Only

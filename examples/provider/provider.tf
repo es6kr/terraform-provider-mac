@@ -3,7 +3,7 @@ terraform {
   required_providers {
     mac = {
       source  = "es6kr/mac"
-      version = "~> 0.0.3"
+      version = "~> 0.0.4"
     }
   }
 }
