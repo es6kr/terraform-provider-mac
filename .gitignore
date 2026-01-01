@@ -53,3 +53,4 @@ override.tf.json
 terraform.rc
 
 example/**/.terraform.lock.hcl
+secret-key.asc

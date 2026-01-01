@@ -8,8 +8,8 @@ import (
 	"github.com/cockroachdb/errors"
 )
 
-func Bootout(ctx context.Context, domainTarget string, label string) error {
-	cmd := exec.CommandContext(ctx, "launchctl", "bootout", domainTarget, label)
+func Bootout(ctx context.Context, serviceTarget string) error {
+	cmd := exec.CommandContext(ctx, "launchctl", "bootout", serviceTarget)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return errors.Wrapf(err, "bootout failed: %s", string(out))
@@ -26,14 +26,14 @@ func Bootstrap(ctx context.Context, domainTarget string, plistPath string) error
 	return nil
 }
 
-func IsLoaded(ctx context.Context, label string) (bool, error) {
-	cmd := exec.CommandContext(ctx, "launchctl", "list")
+func IsLoaded(ctx context.Context, serviceTarget string) (bool, error) {
+	cmd := exec.CommandContext(ctx, "launchctl", "info", serviceTarget)
 	out, err := cmd.Output()
 	if err != nil {
-		return false, errors.Wrap(err, "list services failed")
+		return false, errors.Wrap(err, "info failed")
 	}
 
-	return strings.Contains(string(out), label), nil
+	return strings.Contains(string(out), serviceTarget), nil
 }
 
 func Kickstart(ctx context.Context, serviceTarget string) error {

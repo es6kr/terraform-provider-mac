@@ -2,7 +2,7 @@
 
 NAME = mac
 OS_ARCH ?= darwin_arm64
-TESTARGS ?= -tags=asdf,brew
+TESTARGS ?= -tags=asdf,brew,service
 
 build:
 	goreleaser build --snapshot --clean

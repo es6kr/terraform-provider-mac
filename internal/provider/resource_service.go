@@ -13,11 +13,20 @@ import (
 
 const serviceIDPrefix = "service:"
 
-func serviceID(domainTarget string, label string) string {
+func labelFromServiceID(id string) string {
+	trimmedID := strings.TrimPrefix(id, serviceIDPrefix)
+	parts := strings.Split(trimmedID, "/")
+	if len(parts) > 2 {
+		return parts[len(parts)-1]
+	}
+	return ""
+}
+
+func ServiceID(domainTarget string, label string) string {
 	return serviceIDPrefix + domainTarget + "/" + label
 }
 
-func labelFromServiceID(id string) string {
+func ServiceTargetFromServiceID(id string) string {
 	return strings.TrimPrefix(id, serviceIDPrefix)
 }
 
@@ -83,7 +92,7 @@ func resourceServiceCreate(ctx context.Context, data *schema.ResourceData, meta 
 		}
 	}
 
-	data.SetId(serviceID(domain, label))
+	data.SetId(ServiceID(domain, label))
 
 	return resourceServiceRead(ctx, data, meta)
 }
@@ -104,10 +113,9 @@ func resourceServiceRead(ctx context.Context, data *schema.ResourceData, meta in
 }
 
 func resourceServiceDelete(ctx context.Context, data *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	domain := data.Get("domain_target").(string)
-	label := labelFromServiceID(data.Id())
+	serviceTarget := ServiceTargetFromServiceID(data.Id())
 
-	if err := launchctl.Bootout(ctx, domain, label); err != nil {
+	if err := launchctl.Bootout(ctx, serviceTarget); err != nil {
 		if errors.Is(err, xerrors.ErrNotInstalled) {
 			// Already removed
 			data.SetId("")
